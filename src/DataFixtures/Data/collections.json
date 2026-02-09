@@ -1,0 +1,16 @@
+[
+    {
+        "title": "Nouvellle Collection",
+        "description": "Les derniers arrivages",
+        "button_text": "Voir",
+        "button_link": "https://",
+        "imageUrl": "collection-3.png"
+    },
+    {
+        "title": "Soldes",
+        "description": "Les invendus à prix bas",
+        "button_text": "J'en profite",
+        "button_link": "https://www.instagram.com/",
+        "imageUrl": "collection-7.png"
+    }
+]

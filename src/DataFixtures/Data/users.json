@@ -1,0 +1,62 @@
+[
+  {
+    "civility": "M",
+    "full_name": "Jean Dupont",
+    "email": "jean.dupont@example.com",
+    "password": "123456"
+  },
+  {
+    "civility": "Mme",
+    "full_name": "Sophie Martin",
+    "email": "sophie.martin@example.com",
+    "password": "123456"
+  },
+  {
+    "civility": "Mlle",
+    "full_name": "Camille Lefevre",
+    "email": "camille.lefevre@example.com",
+    "password": "123456"
+  },
+  {
+    "civility": "M",
+    "full_name": "Paul Moreau",
+    "email": "paul.moreau@example.com",
+    "password": "123456"
+  },
+  {
+    "civility": "Mme",
+    "full_name": "Isabelle Dubois",
+    "email": "isabelle.dubois@example.com",
+    "password": "123456"
+  },
+  {
+    "civility": "Mlle",
+    "full_name": "Elodie Bernard",
+    "email": "elodie.bernard@example.com",
+    "password": "123456"
+  },
+  {
+    "civility": "M",
+    "full_name": "Nicolas Petit",
+    "email": "nicolas.petit@example.com",
+    "password": "123456"
+  },
+  {
+    "civility": "Mme",
+    "full_name": "Julie Robert",
+    "email": "julie.robert@example.com",
+    "password": "123456"
+  },
+  {
+    "civility": "Mlle",
+    "full_name": "Charlotte Richard",
+    "email": "charlotte.richard@example.com",
+    "password": "123456"
+  },
+  {
+    "civility": "M",
+    "full_name": "Alexandre Thomas",
+    "email": "alexandre.thomas@example.com",
+    "password": "123456"
+  }
+]

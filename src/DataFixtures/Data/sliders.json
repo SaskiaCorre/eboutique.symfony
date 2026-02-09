@@ -1,0 +1,23 @@
+[
+    {
+        "title": "Soldes d'été",
+        "description": "Pour un été indien fashion à petit prix",
+        "button_text": "Voir",
+        "button_link": "https://",
+        "imageUrl": "slider-1.png"
+    },
+    {
+        "title": "Classe Affaires",
+        "description": "La garde robe des business women!",
+        "button_text": "Voir",
+        "button_link": "https://",
+        "imageUrl": "slider-4.png"
+    },
+    {
+        "title": "Summer Sale",
+        "description": "Taking your Viewing Experience to Next Level",
+        "button_text": "Shop Now",
+        "button_link": "https://",
+        "imageUrl": "slider-5.png"
+    }
+]

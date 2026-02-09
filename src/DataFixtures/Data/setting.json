@@ -1,0 +1,19 @@
+[
+    {
+        "website_name": "MaBoutique",
+        "description": "Retrouvez tous les produits en vente, les évènements à venir etc...",
+        "email": "maBoutique@example.com",
+        "taxe_rate": "20",
+        "logo": "logo-nom.png",
+        "currency": "EUR",
+        "facebookLink": "https://facebook.com/",
+        "youtubeLink": "https://www.youtube.com/",
+        "instagramLink": "https://www.instagram.com/",
+        "phone": "+33 7 49 75 62 45",
+        "street": "3, rue du Siège Social",
+        "city": "Marseille",
+        "code_postal": "13006",
+        "state": "France",
+        "copyright": "© 2026 All Rights Reserved by Saskia"
+    }
+]

@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Robes",
+        "isMega": true
+    },
+    {
+        "name": "Jupes",
+        "isMega": true
+    },
+    {
+        "name": "Pantalons",
+        "isMega": false
+    },
+    {
+        "name": "Manches courtes",
+        "isMega": false
+    },
+    {
+        "name": "Manches longues",
+        "isMega": true
+    }
+]

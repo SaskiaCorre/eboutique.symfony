@@ -1,0 +1,490 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MaBoutique | Mon compte{% endblock %}
+
+{% block body %}
+
+{% include "/page_head/page_head.html.twig" with {'page_name': 'Mon compte'} %}
+<!-- START MAIN CONTENT -->
+<div class="main_content">
+
+    <!-- START SECTION SHOP -->
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-4">
+                    <div class="dashboard_menu">
+                        <ul class="nav nav-tabs flex-column" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="dashboard-tab" data-bs-toggle="tab" href="#dashboard" role="tab" aria-controls="dashboard" aria-selected="false">
+                                    <i class="ti-layout-grid2"></i>
+                                        Mon compte
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="orders-tab" data-bs-toggle="tab" href="#orders" role="tab" aria-controls="orders" aria-selected="false">
+                                    <i class="ti-shopping-cart-full"></i>
+                                        Commandes
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="address-tab" data-bs-toggle="tab" href="#address" role="tab" aria-controls="address" aria-selected="true">
+                                    <i class="ti-location-pin"></i>
+                                        Mon adresse
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="account-detail-tab" data-bs-toggle="tab" href="#account-detail" role="tab" aria-controls="account-detail" aria-selected="true">
+                                    <i class="ti-id-badge"></i>
+                                        Details de mon compte
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/logout">
+                                    <i class="ti-lock"></i>
+                                        Déconnexion
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-9 col-md-8">
+                    <div class="tab-content dashboard_content">
+                        <div class="tab-pane fade" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3>Tableau de bord</h3>
+                                </div>
+                                <div class="card-body">
+                                    <p>Depuis Mon Compte, accédez &amp; consulter rapidement vos <a href="javascript:void(0);" onclick="$('#orders-tab').trigger('click')">dernières commandes</a>, gérer vos <a href="javascript:void(0);" onclick="$('#address-tab').trigger('click')">adresses de livraison et de facturation</a> et <a href="javascript:void(0);" onclick="$('#account-detail-tab').trigger('click')">modifier votre mot de passe et les details de votre compte.</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="logout" role="tabpanel" aria-labelledby="logout-tab">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3>Déconnexion</h3>
+                                </div>
+                                <div class="card-body">
+                                    <p>From your account dashboard. you can easily check &amp; view your <a href="javascript:void(0);" onclick="$('#orders-tab').trigger('click')">recent orders</a>, manage your <a href="javascript:void(0);" onclick="$('#address-tab').trigger('click')">shipping and billing addresses</a> and <a href="javascript:void(0);" onclick="$('#account-detail-tab').trigger('click')">edit your password and account details.</a></p>
+                                    <button type="submit" class="btn btn-fill-out py-2" name="submit" value="Submit">Déconnexion</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="orders" role="tabpanel" aria-labelledby="orders-tab">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3>Commandes</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Commande</th>
+                                                    <th>Date</th>
+                                                    <th>Status</th>
+                                                    <th>Total</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>#1234</td>
+                                                    <td>March 15, 2020</td>
+                                                    <td>Processing</td>
+                                                    <td>$78.00 for 1 item</td>
+                                                    <td><a href="#" class="btn btn-fill-out btn-sm">Voir</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>#2366</td>
+                                                    <td>June 20, 2020</td>
+                                                    <td>Completed</td>
+                                                    <td>$81.00 for 1 item</td>
+                                                    <td><a href="#" class="btn btn-fill-out btn-sm">Voir</a></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade active show" id="address" role="tabpanel" aria-labelledby="address-tab">
+                            <div class="row">
+                                <div class="action d-flex mb-2">
+                                    <a href="#" id="add_new_address" 
+                                    class="btn btn-fill-out">
+                                            Nouvelle adresse
+                                    </a>
+                                </div>
+                                <div class="col-lg-12 d-none" id="add_form">
+                                    <form action="">
+                                        <div class="row">
+                                            <div class="form-group col-md-12 mb-3">
+                                                <label for="address_type">Adresse de 
+                                                    <span class="required">*</span>
+                                                </label>
+                                                <select required name="address_type" id="address_type" class="form-control">
+                                                    <option value="Facturation">Facturation</option>
+                                                    <option value="Livraison">Livraison</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group col-md-12 mb-3">
+                                                <label for="name">Site de l'adresse 
+                                                    <span class="required">*</span>
+                                                </label>
+                                                <select required class="form-control" id="name" name="name" autocomplete="off">
+                                                    <option value="Domicile">Domicile</option>
+                                                    <option value="Bureau">Bureau</option>
+                                                    <option value="Entreprise">Entreprise</option>
+                                                    <option value="Commerce">Commerce</option>
+                                                    <option value="Vacances">Vacances</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group col-md-12 mb-3">
+                                                <label>Vos prénom et nom 
+                                                    <span class="required">*</span>
+                                                </label>
+                                                <input required="" class="form-control" name="client_name" type="text">
+                                            </div>
+                                            <div class="form-group col-md-12 mb-3">
+                                                <label>Rue 
+                                                    <span class="required">*</span>
+                                                </label>
+                                                <input required="" class="form-control" name="street" type="text">
+                                            </div>
+                                            <div class="form-group col-md-12 mb-3">
+                                                <label>Complément d'adresse 
+                                                </label>
+                                                <input class="form-control" name="more_details" type="text">
+                                            </div>
+                                            <div class="form-group col-md-6 mb-3">
+                                                <label>Code postal
+                                                    <span class="required">*</span>
+                                                </label>
+                                                <input required="" class="form-control" name="zip_code" type="text">
+                                            </div>
+                                            <div class="form-group col-md-6 mb-3">
+                                                <label>Ville
+                                                    <span class="required">*</span>
+                                                </label>
+                                                <input required="" class="form-control" name="city" type="text">
+                                            </div>
+                                            <div class="form-group col-md-6 mb-3">
+                                                <label>Pays
+                                                    <span class="required">*</span>
+                                                </label>
+                                                <select class="form-control" name="state" id="state">
+                                                </select>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <button type="submit" class="btn btn-fill-out" name="submit" value="Submit">
+                                                    Sauvegarder
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-lg-12 d-block" id="address_details">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3>Adresses</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="table-responsive">
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Id</th>
+                                                            <th>Adresse</th>
+                                                            <th>Actions</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {% for address in addresses %}
+                                                        <tr>
+                                                            <td>{{address.id}}</td>
+                                                            <td>{{address.street}}
+                                                                {{address.zipCode}}
+                                                                {{address.city}}
+                                                                {{address.state}}
+                                                            </td>
+                                                            <td>
+                                                                <a href="#"
+                                                                   data-id="{{address.id}}"
+                                                                   data-address_type ="{{address.addressType}}"
+                                                                   data-client_name="{{address.clientName}}"
+                                                                   data-name ="{{address.name}}"
+                                                                   data-street ="{{address.street}}"
+                                                                   data-zip_code ="{{address.zipCode}}"
+                                                                   data-city ="{{address.city}}"
+                                                                   data-state ="{{address.state}}" 
+                                                                   class="btn btn-fill-out btn-sm edit_address">
+                                                                    Voir
+                                                                </a>
+                                                            </td>
+                                                            <td>
+                                                                <a href="#" data-id="{{address.id}}" class="btn btn-fill-out btn-sm remove_address">
+                                                                    Supprimer
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                        {% endfor %}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>                        
+                        <div class="tab-pane fade" id="account-detail" role="tabpanel" aria-labelledby="account-detail-tab">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3>Details de votre compte</h3>
+                                </div>
+                                <div class="card-body">
+                                    <p>Vous avez déjà un compte ? <a href="#">Connectez-vous !</a></p>
+                                    <form method="post" name="enq">
+                                        <div class="row">
+                                            <div class="form-group col-md-6 mb-3">
+                                                <label>Prénom <span class="required">*</span></label>
+                                                <input required="" class="form-control" name="name" type="text">
+                                             </div>
+                                             <div class="form-group col-md-6 mb-3">
+                                                <label>Nom <span class="required">*</span></label>
+                                                <input required="" class="form-control" name="phone">
+                                            </div>                    
+                                            <div class="form-group col-md-12 mb-3">
+                                                <label>Display Name <span class="required">*</span></label>
+                                                <input required="" class="form-control" name="dname" type="text">
+                                            </div>
+                                            <div class="form-group col-md-12 mb-3">
+                                                <label>Email <span class="required">*</span></label>
+                                                <input required="" class="form-control" name="email" type="email">
+                                            </div>
+                                            <div class="form-group col-md-12 mb-3">
+                                                <label>Current Password <span class="required">*</span></label>
+                                                <input required="" class="form-control" name="password" type="password">
+                                            </div>
+                                            <div class="form-group col-md-12 mb-3">
+                                                <label>Nouveau mot de passe <span class="required">*</span></label>
+                                                <input required="" class="form-control" name="npassword" type="password">
+                                            </div>
+                                            <div class="form-group col-md-12 mb-3">
+                                                <label>Confirmez votre mot de passe <span class="required">*</span></label>
+                                                <input required="" class="form-control" name="cpassword" type="password">
+                                            </div>
+                                            <div class="col-md-12">
+                                                <button type="submit" class="btn btn-fill-out" name="submit" value="Submit">Sauvegarder</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END SECTION SHOP -->   
+    </div>
+    <!-- END MAIN CONTENT -->
+{% endblock %}
+
+{% block javascripts %}
+<script>
+    const addform = document.getElementById("add_form");
+    const form = document.querySelector("#add_form form");
+    const addAddressButton = document.getElementById("add_new_address");
+    const addressDetails = document.getElementById("address_details");
+    const editAddress = document.querySelectorAll(".edit_address");
+    let isUpdating = false;
+    let currentAddress = undefined;
+
+    const displayAddress = (addresses) => {
+        // Réinitialisé les valeurs de:
+        const tbody = document.querySelector(".address_content tbody")
+        if(tbody){
+            tbody.innerHTML = ""
+            addresses.forEach(address => {
+                tbody.innerHTML += `
+                    <tr>
+                        <td>${address.id}</td>
+                        <td>${address.street}
+                            ${address.zipCode}
+                            ${address.city}
+                            ${address.state}
+                        </td>
+                        <td>
+                            <a href="#" 
+                               data-id="${address.id}"
+                               data-address_type ="${address.address_type}"
+                               data-name ="${address.name}"
+                               data-client_name="${address.clientName}"
+                               data-street ="${address.street}"
+                               data-zip_code ="${address.zipCode}"
+                               data-city ="${address.city}"
+                               data-state ="${address.state}"                               
+                               class="btn btn-fill-out btn-sm edit_address">
+                                 Voir
+                            </a>
+                        </td>
+                        <td>
+                            <a href="#" data-id="${address.id}" class="btn btn-fill-out btn-sm remove_address">
+                                Supprimer
+                            </a>
+                        </td>
+                    </tr>
+                `
+            });
+            addform.classList.add("d-none")
+            addressDetails.classList.remove("d-none")
+            addAddressButton.innerHTML = "Nouvelle Adresse"
+            addEvent()
+        }
+    }
+
+    const initState = async () => {
+        const select = document.querySelector("#add_form form select#state");
+        // Vider le contenu avant de le remplir:
+        select.innerHTML = ""
+
+        // Lire le fichier
+        const response = await fetch("/assets/data/countries.json");
+        const countries = await response.json();
+
+        countries.forEach((country) =>{
+            select.innerHTML += `
+                <option value="${country.alpha2Code}">${country.name}</option>
+            ` 
+        })
+    }
+
+    const addEvent = (address) => {
+        const addform = document.getElementById("add_form");
+        const addAddressButton = document.getElementById("add_new_address");
+        const addressDetails = document.getElementById("address_details");
+        const remove_address_btns = document.querySelectorAll(".remove_address");
+        const editAddress = document.querySelectorAll(".edit_address");
+
+        remove_address_btns.forEach((remove_address_btn) => {
+            remove_address_btn.addEventListener("click", async (event) => {
+                event.preventDefault()
+                const element = event.target
+                const id = element.dataset.id
+
+                if(id) {
+                    const response = await fetch("/api/address/" + id, {
+                        method: "DELETE",
+                    })
+
+                const result = await response.json()
+                console.log({result});
+
+                if(result.isSucces){
+                    const addresses = result.data 
+                    displayAddress(addresses)
+                    }
+                }
+            })
+        
+        });
+
+        //  Quand le form est soumis (submit), on pourra exécuter une fonction (event)
+        // 1-On détecte la requête:
+        addform.addEventListener("submit", async (event)=>{
+            // 2-On arrête tout 
+            event.preventDefault()
+            console.log("----------------SOUMETTRE---------------")
+
+            // On récupère le formulaire
+            const form = document.querySelector("#add_form form")
+            // On récupère les données
+            const dataAddresses = new FormData(form)
+
+            // si c'est une modification d'adresse:
+            if(isUpdating){
+                // Indiquer qu'on MAJ le json
+                var object = {};
+                dataAddresses.forEach((value, key) => object[key] = value);
+                var json = JSON.stringify(object);
+                
+                // Mise à jour de la bdd
+                // Lancer la requête
+                const response = await fetch("/api/address/" + currentAddress.id, {
+                    method: "PUT",
+                    body: json
+                })
+
+                const result = await response.json()
+                
+                if(result.isSucces){
+                    displayAddress(result.data )
+                }
+            }else{
+                // Lancer la requête
+                const response = await fetch("/api/address", {
+                    method: "POST",
+                    body: dataAddresses
+                })
+
+                const result = await response.json()
+
+                if(result.isSucces){
+                    displayAddress(result.data )
+                }
+            }
+            // Pour vérifier en console qu'on récup tout
+            // for (let [key, value] of dataAddresses.entries()) {
+            //     console.log(`${key}: ${value}`);
+            // }
+            // console.log({result});
+            addAddressButton.click();
+        })
+        editAddress.forEach(item => item.addEventListener("click", updateAddress))
+    }
+
+    const updateAddress = (event) => {
+        event.preventDefault()
+        isUpdating = true
+        currentAddress = Object.assign({}, event.target.dataset)
+        addAddressButton.click()
+
+        document.getElementsByName("name")[0].value = currentAddress.name;
+        document.getElementsByName("client_name")[0].value = currentAddress.client_name;
+        document.getElementsByName("address_type")[0].value = currentAddress.address_type;
+        document.getElementsByName("street")[0].value = currentAddress.street;
+        document.getElementsByName("city")[0].value = currentAddress.city;
+        document.getElementsByName("zip_code")[0].value = currentAddress.zip_code;
+        document.getElementsByName("state")[0].value = currentAddress.state;
+        form.querySelector("button").innerHTML = "Modifier";
+        console.log(currentAddress);
+    }
+
+    addAddressButton.addEventListener("click", (event) => {
+        event.preventDefault()
+        if(addform.classList.contains("d-none")){
+            // pour le supprimer
+            addform.classList.remove("d-none")
+            // pour cacher le form
+            addressDetails.classList.add("d-none")            
+            //  Changer le contenu du bouton
+            addAddressButton.innerHTML = "Retour"
+            form.querySelector("button").innerHTML ="Ajouter"
+            // Reinitialiser (vider) le formulaire:
+            form.reset()
+        }else{
+            addAddressButton.innerHTML = "Ajouter une adresse"
+            addform.classList.add("d-none")
+            addressDetails.classList.remove("d-none")
+        } 
+    });
+
+    // Ecouter le click du bouton Voir
+    addEvent()
+    initState()
+</script>
+{% endblock %}
